@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.log
+
+.vscode/
+
+node_modules/
+dist/
+build/
+vanessa_agent/.env
+
+*.lock
