@@ -7,6 +7,5 @@ __pycache__/
 node_modules/
 dist/
 build/
-vanessa_agent/.env
 
 *.lock
