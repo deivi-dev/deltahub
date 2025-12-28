@@ -3,7 +3,7 @@ __pycache__/
 *.log
 
 .vscode/
-
+*.env
 node_modules/
 dist/
 build/
