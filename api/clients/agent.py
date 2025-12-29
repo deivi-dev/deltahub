@@ -1,6 +1,7 @@
 import requests
 from dotenv import load_dotenv
 import os
+from fastapi.responses import JSONResponse
 
 load_dotenv()
 
@@ -16,9 +17,15 @@ def request_response(prompt):
         )
 
         response.raise_for_status()
-        
+
         data = response.json()
-        return {"response": data}
+        return JSONResponse(
+            content={"response": data},
+            headers={
+                "Cache-Control": "no-store",
+                "Pragma": "no-cache",
+                "Expires": "0",
+            })
 
     except requests.exceptions.Timeout:
         return {"error": "The request timed out."}, 504
