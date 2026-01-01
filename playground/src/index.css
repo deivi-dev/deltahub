@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    color: #334272;
+}
+
+.logoTitle {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    color: #334272;
+    font-size: 28px;
+    margin: 0;
+}
+
+.no-decoration {
+    text-decoration: none;
+}
+
+.navbar {
+    border-bottom: 1px solid #e5e9f2;
+    padding: 10px 20px 10px 0px;
+    background-image: url("./assets/background_setion1.png");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menuLogo {
+    display: flex;
+    align-items: center;
+}
+
+.menuLogo img {
+    max-width: 75px;
+}
+
+.itemsNavbar {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.itemsNavbar ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.itemsNavbar a {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    color: #283357;
+    font-size: 18px;
+}
+
+.itemsNavbar a:hover {
+    opacity: 0.8;
+}
+
+.loginBtn {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 7px 22px;
+    border-radius: 10px;
+    background: #fff;
+    color: #1d1d1d;
+    border: 2px solid #c0c8d6;
+    box-shadow: 0px 2px 6px rgb(0, 0, 0, 0.04);
+    cursor: pointer;
+    transition: 0.15s ease;
+}
+
+.loginBtn:hover {
+    background: #f5f8ff;
+}
+
+.registerBtn {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 10px 24px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(180deg, #66b3ff 0%, #2f8dff 100%);
+    color: #fff;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08);
+    transition: 0.15s ease;
+}
+
+@media (max-width: 700px) {
+    .itemsNavbar ul {
+        display: none;
+    }
+
+    .loginBtn,
+    .registerBtn {
+        padding: 4px 10px;
+        font-size: 14px;
+    }
+
+    .menuLogo img {
+        width: 40px;
+    }
+
+    .logoTitle {
+        font-size: 18px;
+    }
+
+    .navbar {
+        padding: 6px 10px;
+        background-position: center top;
+        background-size: cover;
+        flex-wrap: nowrap;
+    }
+}
