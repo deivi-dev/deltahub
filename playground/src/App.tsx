@@ -1,38 +1,48 @@
 import { useState } from "react";
 import { ENV } from "./config";
 import logo from "./assets/logo.png";
+import { Menu } from "lucide-react";
 
 const Header = () => {
   return (
-    <header>
-      <nav className="navbar" role="navigation">
-        <a href="https://deltahub.dev" className="menuLogo no-decoration">
-          <img src={logo} alt="Deltahub logo" />
-          <p className="logoTitle">Deltahub</p>
-        </a>
+    <nav className="navbar">
+      <div className="mobileMenu">
+        <button
+          type="button"
+          className="mobileMenuBtn"
+          aria-label="Open menu"
+          onClick={console.log}
+        >
+          <Menu size={24} />
+        </button>
+      </div>
 
-        <div className="itemsNavbar">
-          <ul>
-            <li>
-              <a href="/explore">Explore</a>
-            </li>
-            <li>
-              <a href="/explore">Documentation</a>
-            </li>
-            <li>
-              <a href="/explore">About</a>
-            </li>
-          </ul>
+      <a href="https://deltahub.dev" className="menuLogo no-decoration">
+        <img src={logo} alt="Deltahub logo" />
+        <span className="logoTitle">Deltahub</span>
+      </a>
 
-          <button type="button" className="loginBtn">
-            Login
-          </button>
-          <button type="button" className="registerBtn">
-            Register
-          </button>
-        </div>
-      </nav>
-    </header>
+      <div className="itemsNavbar">
+        <ul>
+          <li>
+            <a href="/explore">Explore</a>
+          </li>
+          <li>
+            <a href="/explore">Documentation</a>
+          </li>
+          <li>
+            <a href="/explore">About</a>
+          </li>
+        </ul>
+
+        <button type="button" className="navBtn loginBtn">
+          Login
+        </button>
+        <button type="button" className="navBtn registerBtn">
+          Register
+        </button>
+      </div>
+    </nav>
   );
 };
 

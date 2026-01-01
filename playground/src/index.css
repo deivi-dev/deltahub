@@ -11,27 +11,17 @@ body {
 
 h1,
 h2,
-h3 {
-    font-family: "Inter", sans-serif;
-    font-weight: 600;
-    color: #334272;
-}
-
+h3,
 .logoTitle {
     font-family: "Inter", sans-serif;
     font-weight: 600;
     color: #334272;
-    font-size: 28px;
-    margin: 0;
-}
-
-.no-decoration {
-    text-decoration: none;
 }
 
 .navbar {
     border-bottom: 1px solid #e5e9f2;
     padding: 10px 20px 10px 0px;
+    position: relative;
     background-image: url("./assets/background_setion1.png");
     background-size: cover;
     background-position: center top;
@@ -39,6 +29,21 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.navbar,
+.itemsNavbar a,
+.navBtn {
+    font-family: "Inter", sans-serif;
+}
+
+.logoTitle {
+    font-size: 28px;
+    margin: 0;
+}
+
+.no-decoration {
+    text-decoration: none;
 }
 
 .menuLogo {
@@ -60,10 +65,11 @@ h3 {
     display: flex;
     gap: 20px;
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .itemsNavbar a {
-    font-family: "Inter", sans-serif;
     font-weight: 500;
     text-decoration: none;
     color: #283357;
@@ -74,18 +80,20 @@ h3 {
     opacity: 0.8;
 }
 
-.loginBtn {
-    font-family: "Inter", sans-serif;
+.navBtn {
     font-weight: 500;
     font-size: 16px;
+    cursor: pointer;
+    transition: 0.15s ease;
+}
+
+.loginBtn {
     padding: 7px 22px;
     border-radius: 10px;
     background: #fff;
     color: #1d1d1d;
     border: 2px solid #c0c8d6;
     box-shadow: 0px 2px 6px rgb(0, 0, 0, 0.04);
-    cursor: pointer;
-    transition: 0.15s ease;
 }
 
 .loginBtn:hover {
@@ -93,22 +101,46 @@ h3 {
 }
 
 .registerBtn {
-    font-family: "Inter", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
     padding: 10px 24px;
     border-radius: 12px;
     border: none;
-    cursor: pointer;
     background: linear-gradient(180deg, #66b3ff 0%, #2f8dff 100%);
     color: #fff;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08);
-    transition: 0.15s ease;
+}
+
+.mobileMenu {
+    display: none;
+}
+
+.mobileMenuBtn {
+    display: none;
 }
 
 @media (max-width: 700px) {
     .itemsNavbar ul {
         display: none;
+    }
+
+    .menuLogo{
+        margin-left: 40px;
+    }
+
+    .mobileMenu {
+        display: flex;
+        align-items: center;
+    }
+
+    .mobileMenuBtn {
+        display: flex;
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        padding: 4px;
+        cursor: pointer;
     }
 
     .loginBtn,
@@ -127,8 +159,5 @@ h3 {
 
     .navbar {
         padding: 6px 10px;
-        background-position: center top;
-        background-size: cover;
-        flex-wrap: nowrap;
     }
 }
