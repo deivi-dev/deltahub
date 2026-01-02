@@ -1,48 +1,96 @@
 import { useState } from "react";
 import { ENV } from "./config";
 import logo from "./assets/logo.png";
-import { Menu } from "lucide-react";
+import { Menu, X, Compass, BookOpen, Info } from "lucide-react";
+
+type MobileSideBarProps = {
+  onClose: () => void;
+};
+
+const MobileSideBar = ({ onClose }: MobileSideBarProps) => {
+  return (
+    <div className="mobileSidebar">
+      <button className="closeBtn" onClick={onClose}>
+        <X size={24} />
+      </button>
+
+      <nav className="mobileNav">
+        <a href="/explore">
+          <Compass size={18} />
+          <span>Explore</span>
+        </a>
+        <a href="/explore">
+          <BookOpen size={18} />
+          <span>Documentation</span>
+        </a>
+        <a href="/explore">
+          <Info size={18} />
+          <span>About</span>
+        </a>
+      </nav>
+    </div>
+  );
+};
 
 const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <nav className="navbar">
-      <div className="mobileMenu">
-        <button
-          type="button"
-          className="mobileMenuBtn"
-          aria-label="Open menu"
-          onClick={console.log}
-        >
-          <Menu size={24} />
-        </button>
-      </div>
+    <>
+      <nav className="navbar">
+        <div className="mobileMenu">
+          <button
+            type="button"
+            className="mobileMenuBtn"
+            aria-label="Open menu"
+            onClick={() => setMenuOpen(true)}
+          >
+            <Menu size={24} />
+          </button>
+        </div>
 
-      <a href="https://deltahub.dev" className="menuLogo no-decoration">
-        <img src={logo} alt="Deltahub logo" />
-        <span className="logoTitle">Deltahub</span>
-      </a>
+        <a href="https://deltahub.dev" className="menuLogo no-decoration">
+          <img src={logo} alt="Deltahub logo" />
+          <span className="logoTitle">Deltahub</span>
+        </a>
 
-      <div className="itemsNavbar">
-        <ul>
-          <li>
-            <a href="/explore">Explore</a>
-          </li>
-          <li>
-            <a href="/explore">Documentation</a>
-          </li>
-          <li>
-            <a href="/explore">About</a>
-          </li>
-        </ul>
+        <div className="itemsNavbar">
+          <ul>
+            <li>
+              <a href="/explore">
+                <Compass size={18} />
+                <span>Explore</span>
+              </a>
+            </li>
+            <li>
+              <a href="/explore">
+                <BookOpen size={18} />
+                <span>Documentation</span>
+              </a>
+            </li>
+            <li>
+              <a href="/explore">
+              <Info size={18} />
+              <span>About</span></a>
+            </li>
+          </ul>
 
-        <button type="button" className="navBtn loginBtn">
-          Login
-        </button>
-        <button type="button" className="navBtn registerBtn">
-          Register
-        </button>
-      </div>
-    </nav>
+          <button type="button" className="navBtn loginBtn">
+            Login
+          </button>
+          <button type="button" className="navBtn registerBtn">
+            Register
+          </button>
+        </div>
+      </nav>
+
+      {menuOpen && (
+        <>
+          <div className="sidebarOverlay" onClick={() => setMenuOpen(false)} />
+          <MobileSideBar onClose={() => setMenuOpen(false)} />
+        </>
+      )}
+    </>
   );
 };
 

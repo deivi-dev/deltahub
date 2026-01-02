@@ -12,8 +12,18 @@ body {
 h1,
 h2,
 h3,
-.logoTitle {
+.logoTitle,
+.navbar,
+.itemsNavbar a,
+.navBtn,
+.mobileNav a {
     font-family: "Inter", sans-serif;
+}
+
+h1,
+h2,
+h3,
+.logoTitle {
     font-weight: 600;
     color: #334272;
 }
@@ -29,12 +39,6 @@ h3,
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.navbar,
-.itemsNavbar a,
-.navBtn {
-    font-family: "Inter", sans-serif;
 }
 
 .logoTitle {
@@ -70,14 +74,24 @@ h3,
 }
 
 .itemsNavbar a {
+    display: flex;
     font-weight: 500;
     text-decoration: none;
+    align-items: center;
+    padding: 7px;
+    border-radius: 10px;
+    gap: 6px;
     color: #283357;
     font-size: 18px;
 }
 
+.itemsNavbar a svg {
+    color: #5c6ea8;
+    opacity: 0.75;
+}
+
 .itemsNavbar a:hover {
-    opacity: 0.8;
+    background: #f3f6fb;
 }
 
 .navBtn {
@@ -109,21 +123,82 @@ h3,
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-.mobileMenu {
+.mobileMenu,
+.mobileMenuBtn {
     display: none;
 }
 
-.mobileMenuBtn {
-    display: none;
+.mobileSidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 230px;
+    background: #fff;
+    box-shadow: 2px 0 16px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    padding: 16px 16px 0px 0px;
+    z-index: 100;
+}
+
+.mobileNav {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 24px;
+}
+
+.mobileNav a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #283357;
+    font-weight: 500;
+    font-size: 16px;
+    transition: background 0.15s ease;
+}
+
+.mobileNav a svg {
+    color: #5c6ea8;
+    opacity: 0.75;
+}
+
+.mobileNav a:hover {
+    background: #f3f6fb;
+}
+
+.closeBtn {
+    align-self: flex-end;
+    background: #f3f6fb;
+    border: none;
+    border-radius: 10px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.closeBtn:hover {
+    background: #e7ecf5;
+}
+
+.sidebarOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 50;
 }
 
 @media (max-width: 700px) {
     .itemsNavbar ul {
         display: none;
-    }
-
-    .menuLogo{
-        margin-left: 40px;
     }
 
     .mobileMenu {
