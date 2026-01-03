@@ -32,7 +32,7 @@ h3,
     border-bottom: 1px solid #e5e9f2;
     padding: 10px 20px 10px 0px;
     position: relative;
-    background-image: url("./assets/background_setion1.png");
+    background-image: url("./assets/background_section1.png");
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -123,7 +123,6 @@ h3,
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-.mobileMenu,
 .mobileMenuBtn {
     display: none;
 }
@@ -199,11 +198,6 @@ h3,
 @media (max-width: 700px) {
     .itemsNavbar ul {
         display: none;
-    }
-
-    .mobileMenu {
-        display: flex;
-        align-items: center;
     }
 
     .mobileMenuBtn {

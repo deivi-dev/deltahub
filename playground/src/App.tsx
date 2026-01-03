@@ -3,9 +3,42 @@ import { ENV } from "./config";
 import logo from "./assets/logo.png";
 import { Menu, X, Compass, BookOpen, Info } from "lucide-react";
 
+
 type MobileSideBarProps = {
   onClose: () => void;
 };
+
+const navItems = [
+  {
+    label: "explore",
+    href: "/explore",
+    icon: Compass,
+  },
+  {
+    label: "documentation",
+    href: "/documentation",
+    icon: BookOpen,
+  },
+  {
+    label: "about",
+    href: "/about",
+    icon: Info,
+  },
+];
+
+const renderNavItems = (iconSize: number) =>
+  navItems.map((item) => {
+    const Icon = item.icon;
+
+    return (
+      <li key={item.href}>
+        <a href={item.href}>
+          <Icon size={iconSize} />
+          <span>{item.label}</span>
+        </a>
+      </li>
+    );
+  });
 
 const MobileSideBar = ({ onClose }: MobileSideBarProps) => {
   return (
@@ -14,20 +47,7 @@ const MobileSideBar = ({ onClose }: MobileSideBarProps) => {
         <X size={24} />
       </button>
 
-      <nav className="mobileNav">
-        <a href="/explore">
-          <Compass size={18} />
-          <span>Explore</span>
-        </a>
-        <a href="/explore">
-          <BookOpen size={18} />
-          <span>Documentation</span>
-        </a>
-        <a href="/explore">
-          <Info size={18} />
-          <span>About</span>
-        </a>
-      </nav>
+      <nav className="mobileNav">{renderNavItems(16)}</nav>
     </div>
   );
 };
@@ -38,7 +58,6 @@ const Header = () => {
   return (
     <>
       <nav className="navbar">
-        <div className="mobileMenu">
           <button
             type="button"
             className="mobileMenuBtn"
@@ -47,7 +66,6 @@ const Header = () => {
           >
             <Menu size={24} />
           </button>
-        </div>
 
         <a href="https://deltahub.dev" className="menuLogo no-decoration">
           <img src={logo} alt="Deltahub logo" />
@@ -56,23 +74,7 @@ const Header = () => {
 
         <div className="itemsNavbar">
           <ul>
-            <li>
-              <a href="/explore">
-                <Compass size={18} />
-                <span>Explore</span>
-              </a>
-            </li>
-            <li>
-              <a href="/explore">
-                <BookOpen size={18} />
-                <span>Documentation</span>
-              </a>
-            </li>
-            <li>
-              <a href="/explore">
-              <Info size={18} />
-              <span>About</span></a>
-            </li>
+            {renderNavItems(16)}
           </ul>
 
           <button type="button" className="navBtn loginBtn">
