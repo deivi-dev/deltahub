@@ -12,20 +12,12 @@ def request_response(prompt):
     try:
         response = requests.post(
             f"{AGENT_URL}/generate-response",
-            json={"input": prompt.input},
+            json={"input": prompt},
             timeout=60,
         )
 
         response.raise_for_status()
-
-        data = response.json()
-        return JSONResponse(
-            content={"response": data},
-            headers={
-                "Cache-Control": "no-store",
-                "Pragma": "no-cache",
-                "Expires": "0",
-            })
+        return response.json()
 
     except requests.exceptions.Timeout:
         return {"error": "The request timed out."}, 504

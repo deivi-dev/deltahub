@@ -19,5 +19,5 @@ class Prompt(BaseModel):
 
 @app.post("/agent-response")
 def handle_agent_request(prompt: Prompt):
-        response = agent.request_response(prompt)
+        response = agent.request_response(prompt.input)
         return response
